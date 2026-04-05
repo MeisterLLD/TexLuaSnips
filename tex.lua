@@ -368,7 +368,8 @@ local delimiters = {
     [";["]  = { "\\left[ ",   " \\right]",   true  },
     [";{"]  = { "\\left\\{ ", " \\right\\}", true  },
     ["{{"]  = { "\\left\\{ ", " \\right\\}", true  },
-    [";\""  ] = { "\\og ",    " \\fg{}",     false },
+    [";\"" ] = { "\\og ",    " \\fg{}",     false },
+    ["\"\""  ] = { "\\og ",    " \\fg{}",     false },
 }
 
 for trig, brackets in pairs(delimiters) do
