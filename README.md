@@ -32,7 +32,7 @@ Snippets LuaSnip pour LaTeX, pensés pour une utilisation avec [vimtex](https://
     end
   end)
   ```
-  et d'une touche pour sauter entre les nœuds (par exemple : les deux bornes d'une intégrale, le contenu, la lettre après le \mathrm{d}, etc. Par exemple :
+  et d'une touche pour sauter entre les nœuds (p. ex les deux bornes d'une intégrale, le contenu, la lettre après le \mathrm{d}, etc). Par exemple :
   ```
   vim.keymap.set({"i","s"}, "<Tab>", function()
     if require("luasnip").locally_jumpable(1) then
