@@ -158,7 +158,7 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 | `;{` ou `{{` | `\left\{ … \right\}` |
 | `\|\|` | `\left\| … \right\|` (valeur absolue) |
 | `NRM` | `\left\\| … \right\\|` (norme) |
-| `;"` | `\og … \fg{}` (guillemets français) |
+| `""` ou `;"` | `\og … \fg{}` (guillemets français) |
 
 ### Intervalles
 
@@ -215,8 +215,8 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 
 | Trigger | Résultat |
 |---------|----------|
-| `MCa` | `\mathcal{A}` (la lettre tapée est capturée, ex : `MCr` → `\mathcal{R}`) |
-| `MBa` | `\mathbb{A}` (même principe, ex : `MBr` → `\mathbb{R}`) |
+| `MCA` | `\mathcal{A}` (la lettre tapée est capturée, ex : `MCC` → `\mathcal{C}`) |
+| `MBA` | `\mathbb{A}` (même principe, ex : `MBR` → `\mathbb{R}`) |
 | `OVR` | `\overset{…}{…}` (sélection visuelle sur la base) |
 | `UDR` | `\underset{…}{…}` (sélection visuelle sur la base) |
 | `UBR` | `\underbrace{…}_{…}` (sélection visuelle sur le contenu) |
