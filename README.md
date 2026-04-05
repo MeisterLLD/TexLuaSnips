@@ -120,8 +120,8 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 | `;(` ou `((` | `\left( … \right)` |
 | `;[` | `\left[ … \right]` |
 | `;{` ou `{{` | `\left\{ … \right\}` |
-| `\|\|` | `\left| … \right|` (valeur absolue) |
-| `NRM` | `\left\| … \right\|` (norme) |
+| `\|\|` | `\left\| … \right|` (valeur absolue) |
+| `NRM` | `\left\\\| … \right\\\|` (norme) |
 | `;"` | `\og … \fg{}` (guillemets français) |
 
 ### Intervalles
