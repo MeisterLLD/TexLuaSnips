@@ -33,15 +33,16 @@ Snippets LuaSnip pour LaTeX, pensés pour une utilisation avec [vimtex](https://
   end)
   ```
   et d'une touche pour sauter entre les nœuds (par exemple : les deux bornes d'une intégrale, le contenu, la lettre après le \mathrm{d}, etc. Par exemple :
-```
-vim.keymap.set({"i","s"}, "<Tab>", function()
-  if require("luasnip").locally_jumpable(1) then
-    require("luasnip").jump(1)
-  else
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
-  end
-end)
-```
+  ```
+  vim.keymap.set({"i","s"}, "<Tab>", function()
+    if require("luasnip").locally_jumpable(1) then
+      require("luasnip").jump(1)
+    else
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+    end
+  end)
+  ```
+  
 ## Installation
 
 Copiez le fichier dans votre répertoire de snippets LuaSnip, par exemple :
