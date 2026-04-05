@@ -6,7 +6,32 @@ Snippets LuaSnip pour LaTeX, pensés pour une utilisation avec [vimtex](https://
 
 - [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [vimtex](https://github.com/lervag/vimtex) (pour la détection de zone mathématique)
-
+- Configuration dans init.lua d'une touche "Store Selection Keys" pour pouvoir éxécuter un snippet depuis une sélection visuelle, par exemple
+  ```
+  { "L3MON4D3/LuaSnip",
+	config = function()
+	  require("luasnip").setup({
+	    enable_autosnippets = true,
+	    store_selection_keys = "<Tab>",
+	  })
+	  require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets/" })
+        end,
+      -- follow latest release.
+      version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+      -- install jsregexp (optional!).
+      build = "make install_jsregexp"
+    },
+  ```
+- Configuration dans init.lua d'une touche pour compléter les snippets non autoSnippets, par exemple
+  ```
+  vim.keymap.set("i", "<Space>", function()
+    if require("luasnip").expandable() then
+      require("luasnip").expand()
+    else
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Space>", true, false, true), "n", false)
+    end
+  end)
+  ```
 ## Installation
 
 Copiez le fichier dans votre répertoire de snippets LuaSnip, par exemple :
