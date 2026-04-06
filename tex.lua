@@ -436,6 +436,57 @@ local snippets = {
 
 
     s({ trig = "CIR", snippetType = "autosnippet", condition = in_mathzone }, { t("\\circ ") }),
+
+
+    s({ trig = "VID", snippetType = "autosnippet", condition = in_mathzone }, { t("\\varnothing ") }),
+
+    s({ trig = "DER", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\frac{\\mathrm{d}}{\\mathrm{d}"),
+      i(1, "x"),
+      t("} "),
+      i(0),
+    }),
+
+
+    s({ trig = "PAR", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\frac{\\partial "),
+      i(1),
+      t("}{\\partial "),
+      i(2, "x"),
+      t("} "),
+      i(0),
+    }),
+
+    s({ trig = "SSUP", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\sup_{"), i(1), t("} "), i(0),
+    }),
+    s({ trig = "IINF", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\inf_{"), i(1), t("} "), i(0),
+    }),
+    s({ trig = "MMAX", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\max_{"), i(1), t("} "), i(0),
+    }),
+    s({ trig = "MMIN", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\min_{"), i(1), t("} "), i(0),
+    }),
+
+
+    s({ trig = "ID", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\mathrm{Id}_{"),
+      i(1),
+      t("} "),
+      i(0),
+    }),
+
+    s({ trig = "ZER", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\mathrm{0}_{"),
+      i(1),
+      t("} "),
+      i(0),
+    }),
+
+
+
     }
 
 
