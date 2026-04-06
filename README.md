@@ -100,6 +100,8 @@ Se déclenchent uniquement en zone math. Format : `;` + lettre.
 | `TMS` | `\times` |
 | `CIR` | `\circ` |
 | `TVV` | `… \underset{x \to a}{\longrightarrow} L` — "tend vers" (à déclencher après avoir écrit l'expression) |
+| `DER` | `\frac{\mathrm{d}}{\mathrm{d}x} …` — dérivée (variable paramétrable) |
+| `PAR` | `\frac{\partial …}{\partial x}` — dérivée partielle |
 
 ---
 
@@ -157,6 +159,7 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 | `CAP` | `\cap` |
 | `CUP` | `\cup` |
 | `IN` | `\in` |
+| `VID` | `\varnothing` |
 
 ---
 
