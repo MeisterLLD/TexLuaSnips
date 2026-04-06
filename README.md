@@ -143,7 +143,7 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 | `oo` | `\infty` |
 | `!=` | `\neq` |
 | `=>` | `\implies` |
-| `<=>` | `\iff` |
+| `SSI` | `\ \Leftrightarrow \ ` |
 | `->` | `\to` |
 | `!>` | `\mapsto` |
 | `;<` | `\leq` |
