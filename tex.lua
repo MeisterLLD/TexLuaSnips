@@ -486,6 +486,22 @@ local snippets = {
     }),
 
 
+    s({ trig = "DIM", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\dim\\left("),
+      d(1, visual_or_empty),
+      t("\\right) "),
+      i(0),
+    }),
+
+
+    s({ trig = "FBO", snippetType = "autosnippet" }, {
+      t("\\fbox{"), d(1, visual_or_empty), t("} "), i(0),
+    }),
+
+    s({ trig = "BOX", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\boxed{"), d(1, visual_or_empty), t("} "), i(0),
+    }),
+
 
     }
 
@@ -531,7 +547,7 @@ end
 -- Intervalles 
 local interval_delimiters = {
     ["[["] = { "\\left[ ", " \\right[ " },
-    -- ["]]"] = { "\\left] ", " \\right] " },
+    -- ["]]"] = { "\\left] ", " \\right] " }, -- conflit avec un truc de base ?
     ["[]"] = { "\\left[ ", " \\right] " },
     ["]["] = { "\\left] ", " \\right[ " },
 }
