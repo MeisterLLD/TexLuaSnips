@@ -98,6 +98,7 @@ Se déclenchent uniquement en zone math. Format : `;` + lettre.
 | `BIN` | `\binom{…}{…}` |
 | `CDT` | `\cdot` |
 | `TMS` | `\times` |
+| `CIR` | `\circ` |
 | `TVV` | `… \underset{x \to a}{\longrightarrow} L` — "tend vers" (à déclencher après avoir écrit l'expression) |
 
 ---
