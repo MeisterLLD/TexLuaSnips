@@ -6,6 +6,44 @@ Snippets LuaSnip pour LaTeX, pensés pour une utilisation avec [vimtex](https://
 
 - [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [vimtex](https://github.com/lervag/vimtex) (pour la détection de zone mathématique)
+- Configuration dans init.lua de LuaSnip : activer les autosnippets et choisir touche "Store Selection Keys" pour pouvoir éxécuter un snippet depuis une sélection visuelle, par exemple
+  ```lua
+  { "L3MON4D3/LuaSnip",
+	config = function()
+	  require("luasnip").setup({
+	    enable_autosnippets = true,
+	    store_selection_keys = "<Tab>",
+	  })
+	  require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets/" })
+        end,
+      -- follow latest release.
+      version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+      -- install jsregexp (optional!).
+      build = "make install_jsregexp"
+    },
+  ```
+- Configuration dans init.lua d'une touche pour compléter les snippets non autoSnippets, par exemple
+  ```lua
+  vim.keymap.set("i", "<Space>", function()
+    if require("luasnip").expandable() then
+      require("luasnip").expand()
+    else
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Space>", true, false, true), "n", false)
+    end
+  end)
+  ```
+  et d'une touche pour sauter entre les nœuds (p. ex les deux bornes d'une intégrale, le contenu, la lettre après le \mathrm{d}, etc). Par exemple :
+  ```lua
+  vim.keymap.set({"i","s"}, "<Tab>", function()
+    if require("luasnip").locally_jumpable(1) then
+      require("luasnip").jump(1)
+    else
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+    end
+  end)
+  ```
+
+Plus d'information sur la configuration LuaSnip sur leur repo officiel https://github.com/L3MON4D3/LuaSnip
 
 ## Installation
 
