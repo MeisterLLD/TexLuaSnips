@@ -163,8 +163,8 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 
 | Trigger | Résultat |
 |---------|----------|
-| `PO` | `= \underset{x \to a}{o}(…)` — petit o |
-| `GO` | `= \underset{x \to a}{O}(…)` — grand O |
+| `PO` | `\underset{x \to a}{o}(…)` — petit o |
+| `GO` | `\underset{x \to a}{O}(…)` — grand O |
 | `EQ` | `\underset{x \to a}{\sim} …` — équivalent |
 
 ---
