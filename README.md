@@ -127,7 +127,7 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 | `NRM` | `\left\\| … \right\\|` (norme) |
 | `;"` | `\og … \fg{}` (guillemets français) |
 | `ENT` | `[\![ … , … ]\!]` (intervalle d'entiers) |
-| `SET` | `\left\\{ … \middle| … \right\\}` (ensemble en compréhension, barre adaptive) |
+| `SET` | `\left\{ … \middle\| … \right\}` (ensemble en compréhension, barre adaptive) |
 
 ### Intervalles
 
