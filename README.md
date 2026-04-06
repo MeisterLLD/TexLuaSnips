@@ -6,8 +6,8 @@ Snippets LuaSnip pour LaTeX, pensés pour une utilisation avec [vimtex](https://
 
 - [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [vimtex](https://github.com/lervag/vimtex) (pour la détection de zone mathématique)
-- Configuration dans init.lua d'une touche "Store Selection Keys" pour pouvoir éxécuter un snippet depuis une sélection visuelle, par exemple
-  ```
+- Configuration dans init.lua de LuaSnip : activer les autosnippets et choisir touche "Store Selection Keys" pour pouvoir éxécuter un snippet depuis une sélection visuelle, par exemple
+  ```lua
   { "L3MON4D3/LuaSnip",
 	config = function()
 	  require("luasnip").setup({
@@ -23,7 +23,7 @@ Snippets LuaSnip pour LaTeX, pensés pour une utilisation avec [vimtex](https://
     },
   ```
 - Configuration dans init.lua d'une touche pour compléter les snippets non autoSnippets, par exemple
-  ```
+  ```lua
   vim.keymap.set("i", "<Space>", function()
     if require("luasnip").expandable() then
       require("luasnip").expand()
@@ -33,7 +33,7 @@ Snippets LuaSnip pour LaTeX, pensés pour une utilisation avec [vimtex](https://
   end)
   ```
   et d'une touche pour sauter entre les nœuds (p. ex les deux bornes d'une intégrale, le contenu, la lettre après le \mathrm{d}, etc). Par exemple :
-  ```
+  ```lua
   vim.keymap.set({"i","s"}, "<Tab>", function()
     if require("luasnip").locally_jumpable(1) then
       require("luasnip").jump(1)
@@ -42,6 +42,8 @@ Snippets LuaSnip pour LaTeX, pensés pour une utilisation avec [vimtex](https://
     end
   end)
   ```
+
+Plus d'information sur la configuration LuaSnip sur leur repo officiel https://github.com/L3MON4D3/LuaSnip
   
 ## Installation
 
