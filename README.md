@@ -6,45 +6,7 @@ Snippets LuaSnip pour LaTeX, pensés pour une utilisation avec [vimtex](https://
 
 - [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [vimtex](https://github.com/lervag/vimtex) (pour la détection de zone mathématique)
-- Configuration dans init.lua de LuaSnip : activer les autosnippets et choisir touche "Store Selection Keys" pour pouvoir éxécuter un snippet depuis une sélection visuelle, par exemple
-  ```lua
-  { "L3MON4D3/LuaSnip",
-	config = function()
-	  require("luasnip").setup({
-	    enable_autosnippets = true,
-	    store_selection_keys = "<Tab>",
-	  })
-	  require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets/" })
-        end,
-      -- follow latest release.
-      version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-      -- install jsregexp (optional!).
-      build = "make install_jsregexp"
-    },
-  ```
-- Configuration dans init.lua d'une touche pour compléter les snippets non autoSnippets, par exemple
-  ```lua
-  vim.keymap.set("i", "<Space>", function()
-    if require("luasnip").expandable() then
-      require("luasnip").expand()
-    else
-      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Space>", true, false, true), "n", false)
-    end
-  end)
-  ```
-  et d'une touche pour sauter entre les nœuds (p. ex les deux bornes d'une intégrale, le contenu, la lettre après le \mathrm{d}, etc). Par exemple :
-  ```lua
-  vim.keymap.set({"i","s"}, "<Tab>", function()
-    if require("luasnip").locally_jumpable(1) then
-      require("luasnip").jump(1)
-    else
-      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
-    end
-  end)
-  ```
 
-Plus d'information sur la configuration LuaSnip sur leur repo officiel https://github.com/L3MON4D3/LuaSnip
-  
 ## Installation
 
 Copiez le fichier dans votre répertoire de snippets LuaSnip, par exemple :
@@ -158,9 +120,11 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 | `;(` ou `((` | `\left( … \right)` |
 | `;[` | `\left[ … \right]` |
 | `;{` ou `{{` | `\left\{ … \right\}` |
-| `\|\|` | `\left\| … \right\|` (valeur absolue) |
-| `NRM` | `\left\\| … \right\\|` (norme) |
-| `""` ou `;"` | `\og … \fg{}` (guillemets français) |
+| `\|\|` | `\left| … \right|` (valeur absolue) |
+| `NRM` | `\left\| … \right\|` (norme) |
+| `;"` | `\og … \fg{}` (guillemets français) |
+| `ENT` | `[\![ … , … ]\!]` (intervalle d'entiers) |
+| `SET` | `\left\{ … \middle| … \right\}` (ensemble en compréhension, barre adaptive) |
 
 ### Intervalles
 
@@ -189,6 +153,19 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 | `FA` | `\forall` |
 | `EX` | `\exists` |
 | `...` | `\dots` |
+| `CAP` | `\cap` |
+| `CUP` | `\cup` |
+| `IN` | `\in` |
+
+---
+
+## Analyse asymptotique
+
+| Trigger | Résultat |
+|---------|----------|
+| `PO` | `= \underset{x \to a}{o}(…)` — petit o |
+| `GO` | `= \underset{x \to a}{O}(…)` — grand O |
+| `EQ` | `\underset{x \to a}{\sim} …` — équivalent |
 
 ---
 
@@ -217,12 +194,32 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 
 | Trigger | Résultat |
 |---------|----------|
-| `MCA` | `\mathcal{A}` (la lettre tapée est capturée, ex : `MCC` → `\mathcal{C}`) |
-| `MBA` | `\mathbb{A}` (même principe, ex : `MBR` → `\mathbb{R}`) |
+| `MCa` | `\mathcal{A}` (la lettre tapée est capturée, ex : `MCr` → `\mathcal{R}`) |
+| `MBa` | `\mathbb{A}` (même principe, ex : `MBr` → `\mathbb{R}`) |
 | `OVR` | `\overset{…}{…}` (sélection visuelle sur la base) |
 | `UDR` | `\underset{…}{…}` (sélection visuelle sur la base) |
 | `UBR` | `\underbrace{…}_{…}` (sélection visuelle sur le contenu) |
 | `TEX` | `\text{…}` (dans une équation) |
+
+---
+
+## Algèbre linéaire
+| Trigger | Résultat |
+|---------|----------|
+| `IM` | `\mathrm{Im}(…)` (sélection visuelle) |
+| `KER` | `\mathrm{Ker}(…)` (sélection visuelle) |
+| `DET` | `\mathrm{det}(…)` (sélection visuelle) |
+| `TR` | `\mathrm{tr}(…)` (sélection visuelle) |
+
+---
+
+## Probabilités
+
+| Trigger | Résultat |
+|---------|----------|
+| `PP` | `\mathbf{P}(…)` — probabilité (sélection visuelle) |
+| `EE` | `\mathbf{E}[…]` — espérance (sélection visuelle) |
+| `VV` | `\mathbf{V}(…)` — variance (sélection visuelle) |
 
 ---
 
