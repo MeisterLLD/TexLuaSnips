@@ -503,6 +503,56 @@ local snippets = {
     }),
 
 
+    s({ trig = "OPL", snippetType = "autosnippet", condition = in_mathzone }, { t("\\oplus ") }),
+    s({ trig = "ELL", snippetType = "autosnippet", condition = in_mathzone }, { t("\\ell ") }),
+
+    s({ trig = "BCA", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\bigcap_{"), i(1), t("} "), i(0),
+    }),
+
+    s({ trig = "BCU", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\bigcup_{"), i(1), t("} "), i(0),
+    }),
+
+    s({ trig = "WED", snippetType = "autosnippet", condition = in_mathzone }, { t("\\wedge ") }),
+    s({ trig = "VEE", snippetType = "autosnippet", condition = in_mathzone }, { t("\\vee ") }),
+
+    s({ trig = "BOP", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\bigoplus_{"), i(1), t("} "), i(0),
+    }),
+
+    s({ trig = "LL", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\mathcal{L}\\left("),
+      i(1),
+      t("\\right) "),
+      i(0),
+    }),
+
+    s({ trig = "RE", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\mathrm{Re}\\left("), d(1, visual_or_empty), t("\\right) "), i(0),
+    }),
+
+    s({ trig = "ARG", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\mathrm{arg}\\left("), d(1, visual_or_empty), t("\\right) "), i(0),
+    }),
+
+    s({ trig = "BAR", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\overline{"), d(1, visual_or_empty), t("} "), i(0),
+    }),
+    s({ trig = "MOD", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\equiv "),
+      i(1),
+      t(" \\, ["),
+      i(2, "n"),
+      t("] "),
+      i(0),
+    }),
+
+    s({ trig = "RNG", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\mathring{"), d(1, visual_or_empty), t("} "), i(0),
+    }),
+
+
     }
 
 
