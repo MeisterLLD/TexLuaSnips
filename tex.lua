@@ -109,7 +109,7 @@ local snippets = {
     }),
 
     -- fraction
-  s({trig = ";/", snippetType = "autosnippet", condition = in_mathzone }, {
+  s({trig = ";/", snippetType = "autosnippet", condition = in_mathzone, wordTrig = false  }, {
     t("\\frac{"),
     d(1, visual_or_empty),
     t("}{"),
@@ -125,18 +125,16 @@ local snippets = {
 
     --- SYMBOLES (Autosnippets)
     s({ trig = "oo", snippetType = "autosnippet", condition = in_mathzone }, { t("\\infty ") }),
-    s({ trig = "=>", snippetType = "autosnippet", condition = in_mathzone }, { t("\\implies ") }),
-    s({ trig = "<=>", snippetType = "autosnippet", condition = in_mathzone }, { t("\\iff ") }),
+    s({ trig = "=>", snippetType = "autosnippet", condition = in_mathzone, wordTrig = false  }, { t("\\implies ") }),
+    s({ trig = "SSI", snippetType = "autosnippet", condition = in_mathzone }, { t("\\ \\Leftrightarrow \\ ") }),
     s({ trig = "...", snippetType = "autosnippet", condition = in_mathzone }, { t("\\dots") }),
-
-
-    s({ trig = "!=", snippetType = "autosnippet", condition = in_mathzone }, { t("\\neq ") }),
-    s({ trig = ";<", snippetType = "autosnippet", condition = in_mathzone }, { t("\\leq ") }),
-    s({ trig = ";>", snippetType = "autosnippet", condition = in_mathzone }, { t("\\geq ") }),
-    s({ trig = ";c", snippetType = "autosnippet", condition = in_mathzone }, { t("\\subset ") }),
-    s({ trig = ";)", snippetType = "autosnippet", condition = in_mathzone }, { t("\\supset ") }),
-    s({ trig = "->", snippetType = "autosnippet", condition = in_mathzone }, { t("\\to ") }),
-    s({ trig = "!>", snippetType = "autosnippet", condition = in_mathzone }, { t("\\mapsto ") }),
+    s({ trig = "!=", snippetType = "autosnippet", condition = in_mathzone, wordTrig = false  }, { t("\\neq ") }),
+    s({ trig = ";<", snippetType = "autosnippet", condition = in_mathzone, wordTrig = false }, { t("\\leq ") }),
+    s({ trig = ";>", snippetType = "autosnippet", condition = in_mathzone, wordTrig = false  }, { t("\\geq ") }),
+    s({ trig = ";c", snippetType = "autosnippet", condition = in_mathzone, wordTrig = false  }, { t("\\subset ") }),
+    s({ trig = ";)", snippetType = "autosnippet", condition = in_mathzone, wordTrig = false  }, { t("\\supset ") }),
+    s({ trig = "->", snippetType = "autosnippet", condition = in_mathzone, wordTrig = false  }, { t("\\to ") }),
+    s({ trig = "!>", snippetType = "autosnippet", condition = in_mathzone, wordTrig = false  }, { t("\\mapsto ") }),
     s({ trig = "FA", snippetType = "autosnippet", condition = in_mathzone }, { t("\\forall ") }),
     s({ trig = "EX", snippetType = "autosnippet", condition = in_mathzone }, { t("\\exists ") }),
 
@@ -226,13 +224,13 @@ local snippets = {
     }),
 
 
-    s({ trig = "$$", snippetType = "autosnippet", dscr = "Équation hors-texte" }, {
+    s({ trig = "$$", snippetType = "autosnippet", dscr = "Équation hors-texte", wordTrig = false  }, {
         t("\\[ "), d(1, visual_or_empty), t({ " \\]", "" }),
 	i(0)
     }),
 
 
-    s({ trig = "mk", snippetType = "autosnippet" }, {
+    s({ trig = "mk", snippetType = "autosnippet", wordTrig = false  }, {
 	t("$"), d(1, visual_or_empty), t("$"), i(0)
     }),
 
@@ -259,7 +257,7 @@ local snippets = {
 
 
     -- Valeur absolue
-    s({ trig = "||", snippetType = "autosnippet", condition = in_mathzone }, {
+    s({ trig = "||", snippetType = "autosnippet", condition = in_mathzone, wordTrig = false  }, {
       t("\\left| "), d(1, visual_or_empty), t(" \\right| "), i(0)
     }),
 
@@ -346,7 +344,102 @@ local snippets = {
       i(0)
     }),
 
-}
+
+    -- Petit o
+    s({ trig = "PO", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\underset{"),
+      i(1, "x"),
+      t(" \\to "),
+      i(2, "a"),
+      t("}{o}\\left("),
+      i(3),
+      t("\\right) "),
+      i(0),
+    }),
+
+    -- Équivalent
+    s({ trig = "EQ", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\underset{"),
+      i(1, "x"),
+      t(" \\to "),
+      i(2, "a"),
+      t("}{\\sim} "),
+      i(3),
+      i(0),
+    }),
+
+    -- Grand O
+    s({ trig = "GO", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\underset{"),
+      i(1, "x"),
+      t(" \\to "),
+      i(2, "a"),
+      t("}{O}\\left("),
+      i(3),
+      t("\\right) "),
+      i(0),
+    }),
+
+    s({ trig = "ENT", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("[\\!["),
+      i(1),
+      t(", "),
+      i(2),
+      t("]\\!] "),
+      i(0),
+  }),
+
+
+
+      -- Probabilités
+    s({ trig = "PP", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\mathbf{P}\\left("),
+      d(1, visual_or_empty),
+      t("\\right) "),
+      i(0),
+    }),
+
+    s({ trig = "EE", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\mathbf{E}\\left["),
+      d(1, visual_or_empty),
+      t("\\right] "),
+      i(0),
+    }),
+
+    s({ trig = "VV", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\mathbf{V}\\left("),
+      d(1, visual_or_empty),
+      t("\\right) "),
+      i(0),
+    }),
+
+    -- Ensemble en compréhension
+    s({ trig = "SET", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\left\\{ "),
+      i(1),
+      t(" \\middle|\\ "),
+      i(2),
+      t(" \\right\\} "),
+      i(0),
+    }),
+
+    -- Opérations ensemblistes
+    s({ trig = "CAP", snippetType = "autosnippet", condition = in_mathzone }, { t("\\cap ") }),
+    s({ trig = "CUP", snippetType = "autosnippet", condition = in_mathzone }, { t("\\cup ") }),
+    s({ trig = "IN", snippetType = "autosnippet", condition = in_mathzone }, { t("\\in ") }),
+
+    -- Algèbre linéaire
+    s({ trig = "IM",  snippetType = "autosnippet", condition = in_mathzone }, { t("\\mathrm{Im}\\left("), d(1, visual_or_empty), t("\\right) "), i(0) }),
+    s({ trig = "KER", snippetType = "autosnippet", condition = in_mathzone }, { t("\\mathrm{Ker}\\left("),        d(1, visual_or_empty), t("\\right) "), i(0) }),
+    s({ trig = "DET", snippetType = "autosnippet", condition = in_mathzone }, { t("\\mathrm{det}\\left("),        d(1, visual_or_empty), t("\\right) "), i(0) }),
+    s({ trig = "TR",  snippetType = "autosnippet", condition = in_mathzone }, { t("\\mathrm{tr}\\left("), d(1, visual_or_empty), t("\\right) "), i(0) }),
+
+
+    s({ trig = "CIR", snippetType = "autosnippet", condition = in_mathzone }, { t("\\circ ") }),
+    }
+
+
+
 
 -- lettres grecques
 for key, name in pairs(greek_letters) do
@@ -368,8 +461,7 @@ local delimiters = {
     [";["]  = { "\\left[ ",   " \\right]",   true  },
     [";{"]  = { "\\left\\{ ", " \\right\\}", true  },
     ["{{"]  = { "\\left\\{ ", " \\right\\}", true  },
-    [";\"" ] = { "\\og ",    " \\fg{}",     false },
-    ["\"\""  ] = { "\\og ",    " \\fg{}",     false },
+    [";\""  ] = { "\\og ",    " \\fg{}",     false },
 }
 
 for trig, brackets in pairs(delimiters) do
@@ -450,7 +542,7 @@ end
 
 -- ;$ en visuel à la vim-latex
 table.insert(snippets, s(
-    { trig = ";$", snippetType = "autosnippet" },
+    { trig = ";$", snippetType = "autosnippet", wordTrig = false  },
     {
         d(1, function(args, snip)
             local visual = snip.env.LS_SELECT_RAW
