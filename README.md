@@ -127,7 +127,7 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 | `NRM` | `\left\| … \right\|` (norme) |
 | `;"` | `\og … \fg{}` (guillemets français) |
 | `ENT` | `[\![ … , … ]\!]` (intervalle d'entiers) |
-| `SET` | `\left\{ … \middle| … \right\}` (ensemble en compréhension, barre adaptive) |
+| `SET` | `\left\\{ … \middle| … \right\\}` (ensemble en compréhension, barre adaptive) |
 
 ### Intervalles
 
@@ -204,6 +204,10 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 | `UDR` | `\underset{…}{…}` (sélection visuelle sur la base) |
 | `UBR` | `\underbrace{…}_{…}` (sélection visuelle sur le contenu) |
 | `TEX` | `\text{…}` (dans une équation) |
+| `IINF` | `\inf_{…}` |
+| `SSUP` | `\sup_{…}` |
+| `MMAX` | `\max_{…}` |
+| `MMIN` | `\min_{…}` |
 
 ---
 
