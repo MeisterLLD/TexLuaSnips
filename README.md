@@ -191,6 +191,8 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 | `FIT` | `\textit{…}` |
 | `FBF` | `\textbf{…}` |
 | `FTT` | `\texttt{…}` |
+| `FBO` | `\fbox{…}` — encadré texte (sélection visuelle) |
+| `BOX` | `\boxed{…}` — encadré math (sélection visuelle) |
 
 ---
 
@@ -220,6 +222,7 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 | `KER` | `\mathrm{Ker}(…)` (sélection visuelle) |
 | `DET` | `\mathrm{det}(…)` (sélection visuelle) |
 | `TR` | `\mathrm{tr}(…)` (sélection visuelle) |
+| `DIM` | `\dim(…)` (sélection visuelle) |
 
 ---
 
