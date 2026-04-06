@@ -194,7 +194,7 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 
 ---
 
-## Mathématiques avancées
+## Mathématiques autres
 
 | Trigger | Résultat |
 |---------|----------|
@@ -208,6 +208,8 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 | `SSUP` | `\sup_{…}` |
 | `MMAX` | `\max_{…}` |
 | `MMIN` | `\min_{…}` |
+| `ID` | `\mathrm{Id}_{…}` — application identité |
+| `ZER` | `\mathrm{0}_{…}` — zéro d'un espace |
 
 ---
 
