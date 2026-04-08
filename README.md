@@ -80,7 +80,6 @@ Se déclenchent uniquement en zone math. Format : `;` + lettre.
 | `CAS` | `cases` |
 | `PMAT` | `pmatrix` 2×2 |
 | `CEN` | `center` (supporte la sélection visuelle multiligne) |
-| `APA` | `apart` (environnement custom, supporte la sélection visuelle multiligne) |
 | `MIN` | Bloc `minted` python (supporte la sélection visuelle, sans indentation forcée) |
 
 ---
@@ -158,10 +157,11 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 | `...` | `\dots` |
 | `CAP` | `\cap` |
 | `CUP` | `\cup` |
-| `IN` | `\in` |
+| `IIN` | `\in` |
 | `VID` | `\varnothing` |
 | `BCAP` | `\bigcap_{…}` |
 | `BCUP` | `\bigcup_{…}` |
+| `COL` | `\colon` |
 
 
 ---
@@ -179,9 +179,9 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 ## Complexes
 |Trigger | Résultat |
 |--------|----------|
-| `RE` | `\mathrm{Re}(…)` — partie réelle (sélection visuelle) |
-| `ARG` | `\mathrm{arg}(…)` — argument (sélection visuelle) |
-| `BAR` | `\overline{…}` — conjugué (adhérence (sélection visuelle) |
+| `RE` | `\mathrm{Re}(…)` — partie réelle |
+| `ARG` | `\mathrm{arg}(…)` — argument |
+| `BAR` | `\overline{…}` — conjugué ou adhérence |
 
 ---
 
@@ -199,13 +199,13 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 
 | Trigger | Résultat |
 |---------|----------|
-| `mk` | `$…$` inline (sélection visuelle) |
-| `$$` | `\[ … \]` display (sélection visuelle) |
+| `mk` | `$…$` inline  |
+| `$$` | `\[ … \]` display |
 | `;$` | Inline ou display selon la sélection (sélection linewise → display) |
 
 ---
 
-## Fontes texte (sélection visuelle supportée)
+## Texte (sélection visuelle supportée)
 
 | Trigger | Résultat |
 |---------|----------|
@@ -213,8 +213,9 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 | `FIT` | `\textit{…}` |
 | `FBF` | `\textbf{…}` |
 | `FTT` | `\texttt{…}` |
-| `FBO` | `\fbox{…}` — encadré texte (sélection visuelle) |
-| `BOX` | `\boxed{…}` — encadré math (sélection visuelle) |
+| `FBO` | `\fbox{…}` — encadré texte |
+| `BOX` | `\boxed{…}` — encadré mode math |
+| `,,` | `,\ ` — virgule suivie d'une espace en mode math |
 
 ---
 
@@ -222,8 +223,13 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 
 | Trigger | Résultat |
 |---------|----------|
-| `MCa` | `\mathcal{A}` (la lettre tapée est capturée, ex : `MCr` → `\mathcal{R}`) |
-| `MBa` | `\mathbb{A}` (même principe, ex : `MBr` → `\mathbb{R}`) |
+| `MCA` | `\mathcal{A}` (la lettre tapée est capturée, ex : `MCC` → `\mathcal{C}`) |
+| `MBA` | `\mathbb{A}` (même principe, ex : `MBZ` → `\mathbb{Z}`) |
+| `RR` | `\mathbb{R}`| 
+| `CC` | `\mathbb{C}`| 
+| `KK` | `\mathbb{K}`| 
+| `NN` | `\mathbb{N}`| 
+| `ZZ` | `\mathbb{Z}`| 
 | `OVR` | `\overset{…}{…}` (sélection visuelle sur la base) |
 | `UDR` | `\underset{…}{…}` (sélection visuelle sur la base) |
 | `UBR` | `\underbrace{…}_{…}` (sélection visuelle sur le contenu) |
@@ -235,21 +241,21 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 | `ID` | `\mathrm{Id}_{…}` — application identité |
 | `ZER` | `\mathrm{0}_{…}` — zéro d'un espace |
 | `ELL` | `\ell` |
-| `RNG` | `\mathring{…}` — intérieur d'un ensemble (sélection visuelle) |
+| `RNG` | `\mathring{…}` — intérieur d'un ensemble |
 
 ---
 
 ## Algèbre linéaire
 | Trigger | Résultat |
 |---------|----------|
-| `IM` | `\mathrm{Im}(…)` (sélection visuelle) |
-| `KER` | `\mathrm{Ker}(…)` (sélection visuelle) |
-| `DET` | `\mathrm{det}(…)` (sélection visuelle) |
-| `TR` | `\mathrm{tr}(…)` (sélection visuelle) |
-| `DIM` | `\dim(…)` (sélection visuelle) |
+| `IM` | `\mathrm{Im}(…)`  |
+| `KER` | `\mathrm{Ker}(…)`  |
+| `DET` | `\mathrm{det}(…)`  |
+| `TR` | `\mathrm{tr}(…)`  |
+| `DIM` | `\dim(…)`  |
 | `OPL` | `\oplus` |
 | `BOP` | `\bigoplus_{…}` |
-| `LL` | `\mathcal{L}(…)` — applications linéaires |
+| `LL` | `\mathcal{L}(…)` |
 
 ---
 
@@ -257,9 +263,9 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 
 | Trigger | Résultat |
 |---------|----------|
-| `PP` | `\mathbf{P}(…)` — probabilité (sélection visuelle) |
-| `EE` | `\mathbf{E}[…]` — espérance (sélection visuelle) |
-| `VV` | `\mathbf{V}(…)` — variance (sélection visuelle) |
+| `PP` | `\mathbf{P}(…)` — probabilité  |
+| `EE` | `\mathbf{E}[…]` — espérance  |
+| `VV` | `\mathbf{V}(…)` — variance  |
 
 ---
 
@@ -272,7 +278,9 @@ Tous se déclenchent uniquement en zone math, sauf les guillemets français.
 | `SSSS` | `\subsubsection{…}` |
 | `ITM` ou `,it` | `\item` |
 | `,exo` | `\exercice{…}` |
-| `MIT` | `\mintinline{python}{…}` (sélection visuelle) |
+| `MIT` | `\mintinline{python}{…}`  |
+| `LBL` | `\label{…}`  |
+| `REF` | `\ref{…}`  |
 
 ---
 

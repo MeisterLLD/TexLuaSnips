@@ -57,7 +57,7 @@ local snippets = {
     -- Snippet BEG générique
     s({ trig = "BEG", snippetType = "autosnippet", dscr = "Environnement LaTeX générique" }, {
         t("\\begin{"), i(1, "env"), t({ "}", indent }),
-        i(2), -- Le contenu de l'environnement
+	d(2, visual_or_empty),
         t({ "", "\\end{" }),
         f(copy, {1}), -- Recopie automatiquement ce qui est tapé en i(1)
         t({ "}", "" }),
@@ -68,7 +68,7 @@ local snippets = {
     -- Snippet pour l'environnement Enumerate (EEN)
     s({ trig = "EEN", snippetType = "autosnippet", dscr = "Environnement enumerate avec un item" }, {
         t({ "\\begin{enumerate}", indent .. "\\item " }),
-        i(1), -- Le curseur commence ici après l'item
+	d(1, visual_or_empty),
         t({ "", "\\end{enumerate}", "" }),
         i(0), -- Sortie du snippet (après le end)
     }),
@@ -76,7 +76,7 @@ local snippets = {
     -- Snippet pour l'environnement Itemize (EIT)
     s({ trig = "EIT", snippetType = "autosnippet", dscr = "Environnement itemize avec un item" }, {
         t({ "\\begin{itemize}",  indent .. "\\item " }),
-        i(1), -- Le curseur commence ici après l'item
+	d(1, visual_or_empty),
         t({ "", "\\end{itemize}", "" }),
         i(0), -- Sortie du snippet (après le end)
     }),
@@ -84,7 +84,7 @@ local snippets = {
     -- Snippet pour l'environnement Equation (EEQ)
      s({ trig = "EEQ", snippetType = "autosnippet", dscr = "Equation" }, {
         t({ "\\begin{equation}", indent .. "\\label{eq:" }), i(1, "nom"), t("}"),
-        t({ "", indent }), i(2), -- Le contenu de l'équation
+        t({ "", indent }), d(2, visual_or_empty), -- Le contenu de l'équation
         t({ "", "\\end{equation}", "" }),
         i(0) -- Sortie finale sous l'équation
     }),
@@ -114,7 +114,7 @@ local snippets = {
     d(1, visual_or_empty),
     t("}{"),
     i(2),
-    t("} "),
+    t("}"),
     i(0),
   }),
 
@@ -417,7 +417,7 @@ local snippets = {
     s({ trig = "SET", snippetType = "autosnippet", condition = in_mathzone }, {
       t("\\left\\{ "),
       i(1),
-      t(" \\middle|\\ "),
+      t(" \\ \\middle|\\ "),
       i(2),
       t(" \\right\\} "),
       i(0),
@@ -426,7 +426,7 @@ local snippets = {
     -- Opérations ensemblistes
     s({ trig = "CAP", snippetType = "autosnippet", condition = in_mathzone }, { t("\\cap ") }),
     s({ trig = "CUP", snippetType = "autosnippet", condition = in_mathzone }, { t("\\cup ") }),
-    s({ trig = "IN", snippetType = "autosnippet", condition = in_mathzone }, { t("\\in ") }),
+    s({ trig = "IIN", snippetType = "autosnippet", condition = in_mathzone }, { t("\\in ") }),
 
     -- Algèbre linéaire
     s({ trig = "IM",  snippetType = "autosnippet", condition = in_mathzone }, { t("\\mathrm{Im}\\left("), d(1, visual_or_empty), t("\\right) "), i(0) }),
@@ -472,7 +472,7 @@ local snippets = {
 
 
     s({ trig = "ID", snippetType = "autosnippet", condition = in_mathzone }, {
-      t("\\mathrm{Id}_{"),
+      t("\\mathrm{id}_{"),
       i(1),
       t("} "),
       i(0),
@@ -493,6 +493,25 @@ local snippets = {
       i(0),
     }),
 
+
+    s({ trig = "VEC", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\mathrm{Vect}\\left("),
+      d(1, visual_or_empty),
+      t("\\right) "),
+      i(0),
+    }),
+
+
+    s({ trig = "CRO", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\left[ "),
+      d(1, visual_or_empty),
+      t(" \\right]_{"),
+      i(2),
+      t("}^{"),
+      i(3),
+      t("} "),
+      i(0),
+    }),
 
     s({ trig = "FBO", snippetType = "autosnippet" }, {
       t("\\fbox{"), d(1, visual_or_empty), t("} "), i(0),
@@ -552,6 +571,21 @@ local snippets = {
       t("\\mathring{"), d(1, visual_or_empty), t("} "), i(0),
     }),
 
+    s({ trig = "LBL", snippetType = "autosnippet" }, {
+      t("\\label{"), d(1, visual_or_empty), t("} "), i(0),
+    }),
+
+    s({ trig = "REF", snippetType = "autosnippet" }, {
+      t("\\ref{"), d(1, visual_or_empty), t("} "), i(0),
+    }),
+
+
+    s({ trig = ",,", snippetType = "autosnippet", wordTrig = false, condition = in_mathzone }, { t(",\\") }),
+    s({ trig = "RR", snippetType = "autosnippet", condition = in_mathzone }, { t("\\mathbb{R}") }),
+    s({ trig = "CC", snippetType = "autosnippet", condition = in_mathzone }, { t("\\mathbb{C}") }),
+    s({ trig = "KK", snippetType = "autosnippet", condition = in_mathzone }, { t("\\mathbb{K}") }),
+    s({ trig = "NN", snippetType = "autosnippet", condition = in_mathzone }, { t("\\mathbb{N}") }),
+    s({ trig = "ZZ", snippetType = "autosnippet", condition = in_mathzone }, { t("\\mathbb{Z}") }),
 
     }
 
@@ -584,7 +618,7 @@ local delimiters = {
 for trig, brackets in pairs(delimiters) do
     local cond = brackets[3] and in_mathzone or nil
     table.insert(snippets, s(
-        { trig = trig, snippetType = "autosnippet", wordTrig = false, condition = cond },
+        { trig = trig, snippetType = "autosnippet", condition = cond },
         {
             t(brackets[1]),
             d(1, visual_or_empty),
