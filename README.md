@@ -2,6 +2,8 @@
 
 Snippets LuaSnip pour LaTeX, pensés pour une utilisation avec [vimtex](https://github.com/lervag/vimtex) et Neovim. La plupart des snippets math ne se déclenchent qu'en zone mathématique (détection automatique via vimtex).
 
+Le but de ces snippets est de réduire l'utilisation des macros persos afin de faciliter la compatibilité et le partage de fichiers. 
+
 ## Prérequis
 
 - [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
