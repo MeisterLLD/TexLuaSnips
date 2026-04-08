@@ -1,10 +1,15 @@
 # Snippets LuaSnip — LaTeX
 
-Snippets LuaSnip pour LaTeX, pensés pour une utilisation avec [vimtex](https://github.com/lervag/vimtex) et Neovim. La plupart des snippets math ne se déclenchent qu'en zone mathématique (détection automatique via vimtex).
+Snippets LuaSnip pour LaTeX, pensés pour une utilisation avec [vimtex](https://github.com/lervag/vimtex) et Neovim. 
 
 Les snippets sont des suites de touches à taper dans neovim et qui ont un effet sur le texte en cours d'édition. Le but est de réduire l'utilisation des macros persos afin de faciliter la compatibilité et le partage de fichiers. 
 
 La philosophie est la suivante : remplacer une macro LaTeX par un snippet qui va écrire la commande en entier. L'auteur y gagne aussi au change car les snippets sont faciles à taper (seulement quelques touches, aucune combinaison type \ ou { etc)).
+
+La plupart des snippets math ne se déclenchent qu'en zone mathématique (détection automatique via vimtex).
+
+Beaucoup de snippets ont des nœuds : on peut voyager entre les différentes zones de la commande à l'aide de touches configurées dans LuaSnip (par exemple les deux bornes et le contenu d'une somme) ainsi que sortir de la commande par cette même touche.
+
 
 ## Prérequis
 
