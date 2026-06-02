@@ -73,6 +73,7 @@ local snippets = {
         i(0), -- Sortie du snippet (après le end)
     }),
 
+    
     -- Snippet pour l'environnement Itemize (EIT)
     s({ trig = "EIT", snippetType = "autosnippet", dscr = "Environnement itemize avec un item" }, {
         t({ "\\begin{itemize}",  indent .. "\\item " }),
@@ -391,6 +392,8 @@ local snippets = {
 
 
 
+
+
       -- Probabilités
     s({ trig = "PP", snippetType = "autosnippet", condition = in_mathzone }, {
       t("\\mathbf{P}\\left("),
@@ -433,6 +436,16 @@ local snippets = {
     s({ trig = "KER", snippetType = "autosnippet", condition = in_mathzone }, { t("\\mathrm{Ker}\\left("),        d(1, visual_or_empty), t("\\right) "), i(0) }),
     s({ trig = "DET", snippetType = "autosnippet", condition = in_mathzone }, { t("\\mathrm{det}\\left("),        d(1, visual_or_empty), t("\\right) "), i(0) }),
     s({ trig = "TR",  snippetType = "autosnippet", condition = in_mathzone }, { t("\\mathrm{tr}\\left("), d(1, visual_or_empty), t("\\right) "), i(0) }),
+
+
+    s({ trig = "PS", snippetType = "autosnippet", condition = in_mathzone }, {
+      t("\\left\\langle "),
+      i(1),
+      t(","),
+      i(2),
+      t(" \\right\\rangle"),
+      i(0),
+  }),
 
 
     s({ trig = "CIR", snippetType = "autosnippet", condition = in_mathzone }, { t("\\circ ") }),
@@ -487,7 +500,7 @@ local snippets = {
 
 
     s({ trig = "DIM", snippetType = "autosnippet", condition = in_mathzone }, {
-      t("\\dim\\left("),
+      t("\\mathrm{dim}\\left("),
       d(1, visual_or_empty),
       t("\\right) "),
       i(0),
